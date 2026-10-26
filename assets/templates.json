@@ -1,0 +1,272 @@
+[
+  {
+    "title": "Demande de rendez-vous",
+    "category": "Administration",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de rendez-vous\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite obtenir un rendez-vous auprès de votre service afin de traiter [démarche]. Je suis disponible [disponibilités]. Pourriez-vous me préciser les pièces à apporter ainsi que les modalités du rendez-vous ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de copie de document",
+    "category": "Administration",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de copie de document\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous prie de bien vouloir me transmettre une copie de [document], relatif à [dossier ou référence]. Je joins [justificatifs nécessaires] à cette demande. Merci de m’indiquer si des formalités complémentaires sont nécessaires.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Signalement de changement d’adresse",
+    "category": "Administration",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Signalement de changement d’adresse\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous informe de mon changement d’adresse à compter du [date]. Mon ancienne adresse était [ancienne adresse]. Merci de mettre à jour mon dossier avec l’adresse suivante : [nouvelle adresse], et de m’en confirmer la prise en compte.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Rectification de dossier",
+    "category": "Administration",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Rectification de dossier\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nAprès consultation de mon dossier [référence], j’ai constaté l’erreur suivante : [erreur]. L’information correcte est [information]. Vous trouverez en pièce jointe [justificatif]. Je vous remercie de procéder à la rectification.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande d’information administrative",
+    "category": "Administration",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande d’information administrative\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite effectuer [démarche] et souhaiterais connaître les conditions applicables à ma situation : [situation]. Pourriez-vous m’indiquer les étapes à suivre, les documents requis et les délais habituellement constatés ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Relance de dossier",
+    "category": "Administration",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Relance de dossier\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe reviens vers vous au sujet de ma demande [objet], transmise le [date] sous la référence [référence]. Je n’ai pas reçu de réponse à ce jour. Pourriez-vous m’informer de son état d’avancement et des éventuelles pièces manquantes ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Lettre de motivation",
+    "category": "Travail",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Lettre de motivation\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous propose ma candidature au poste de [poste]. Votre activité [activité ou projet] correspond à mon intérêt pour [domaine]. Mon expérience en [expérience] m’a permis de développer [compétences], notamment lors de [réalisation vérifiable]. Je serais heureux de vous présenter ma motivation lors d’un entretien.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Candidature spontanée",
+    "category": "Travail",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Candidature spontanée\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nSouhaitant rejoindre votre équipe dans le domaine [domaine], je vous adresse ma candidature. Mon parcours en [parcours] et mes compétences en [compétences] pourraient contribuer à [besoin identifié]. Vous trouverez mon CV en pièce jointe. Je suis disponible pour échanger sur vos besoins.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de congés",
+    "category": "Travail",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de congés\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite solliciter des congés du [date de début] au [date de fin], soit [nombre] jours. Afin d’assurer la continuité de l’activité, je propose [organisation]. Pourriez-vous me confirmer si ces dates peuvent être validées ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de formation",
+    "category": "Travail",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de formation\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaiterais suivre la formation [intitulé], proposée par [organisme] du [dates]. Elle me permettrait de renforcer [compétences] et de les appliquer à [missions]. Je vous propose d’en discuter afin d’étudier les modalités de participation et de financement.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Remerciement après entretien",
+    "category": "Travail",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Remerciement après entretien\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous remercie pour notre entretien du [date] concernant le poste de [poste]. Nos échanges sur [sujet précis] ont renforcé mon intérêt pour votre équipe. Je reste disponible pour toute information complémentaire et vous confirme ma motivation à contribuer à [mission].\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande d’attestation professionnelle",
+    "category": "Travail",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande d’attestation professionnelle\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous remercie de bien vouloir me délivrer une attestation précisant [informations nécessaires], pour la période [période]. Ce document m’est demandé dans le cadre de [démarche]. Merci de m’indiquer quand il pourra être disponible.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Contestation d’opération bancaire",
+    "category": "Banque",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Contestation d’opération bancaire\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJ’ai constaté sur mon compte [référence partielle] une opération du [date], libellée [libellé], d’un montant de [montant]. Je conteste cette opération pour le motif suivant : [motif]. Merci de m’indiquer la procédure de contestation et les justificatifs nécessaires.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de clôture de compte",
+    "category": "Banque",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de clôture de compte\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite clôturer mon compte [référence] après traitement des opérations en cours. Merci de m’indiquer les démarches à accomplir et les moyens de paiement à restituer. Le solde pourra être transféré vers le compte indiqué dans le RIB joint, après vérification des conditions applicables.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de rendez-vous bancaire",
+    "category": "Banque",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de rendez-vous bancaire\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite convenir d’un rendez-vous pour faire le point sur [projet ou besoin]. Mes disponibilités sont [disponibilités]. Merci de me préciser les documents utiles à cet échange.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande d’explication de frais",
+    "category": "Banque",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande d’explication de frais\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nDes frais de [montant], libellés [libellé], ont été prélevés le [date]. Pourriez-vous m’en préciser le motif, le mode de calcul et les conditions tarifaires correspondantes ? Je souhaite comprendre cette facturation avant toute autre démarche.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de geste commercial bancaire",
+    "category": "Banque",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de geste commercial bancaire\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nÀ la suite de [situation], des frais de [montant] ont été appliqués le [date]. Compte tenu de [circonstances vérifiables], je sollicite un geste commercial sur ces frais. Je vous remercie d’examiner ma demande et de me faire connaître votre décision.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Mise à jour des coordonnées bancaires",
+    "category": "Banque",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Mise à jour des coordonnées bancaires\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous informe de la modification de mes coordonnées de contact : [nouvelles coordonnées]. Merci de mettre à jour mon dossier associé au compte [référence partielle] et de m’indiquer si une vérification complémentaire est requise.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Déclaration de sinistre",
+    "category": "Assurance",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Déclaration de sinistre\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous déclare un sinistre survenu le [date] à [lieu], concernant le contrat [référence]. Les faits sont les suivants : [description factuelle]. Les dommages constatés sont [dommages]. Je joins [pièces disponibles] et vous remercie de m’indiquer les prochaines étapes.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de suivi d’indemnisation",
+    "category": "Assurance",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de suivi d’indemnisation\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe reviens vers vous concernant le sinistre [référence], déclaré le [date]. Pourriez-vous m’indiquer l’état d’avancement de l’instruction, les documents éventuellement manquants et la prochaine étape prévue ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de résiliation d’assurance",
+    "category": "Assurance",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de résiliation d’assurance\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite résilier mon contrat [référence] pour le motif suivant : [motif]. Merci de me confirmer les conditions et la date de prise d’effet applicables à ma situation, ainsi que les éventuelles pièces à fournir.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande d’attestation d’assurance",
+    "category": "Assurance",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande d’attestation d’assurance\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous remercie de me transmettre une attestation d’assurance correspondant au contrat [référence], pour [usage ou période]. Merci de vérifier que les informations suivantes y figurent : [informations nécessaires].\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Modification de garanties",
+    "category": "Assurance",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Modification de garanties\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nMa situation a évolué de la manière suivante : [changement]. Je souhaite examiner l’adaptation des garanties du contrat [référence]. Pourriez-vous me proposer les options pertinentes, en précisant les exclusions, franchises et conséquences tarifaires ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Contestation d’évaluation de dommages",
+    "category": "Assurance",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Contestation d’évaluation de dommages\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nConcernant le sinistre [référence], l’évaluation communiquée le [date] appelle les observations suivantes : [éléments contestés]. Je joins [devis ou justificatifs]. Je sollicite un réexamen de cette évaluation et vous remercie de préciser la procédure à suivre.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de réparation du chauffage",
+    "category": "Logement",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de réparation du chauffage\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous signale un dysfonctionnement du chauffage dans le logement situé [adresse], constaté depuis le [date]. Malgré [démarches réellement effectuées], le problème persiste. Je vous remercie d’organiser une intervention et de me communiquer une date de passage. Je suis disponible [disponibilités].\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Signalement d’une fuite",
+    "category": "Logement",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Signalement d’une fuite\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nUne fuite a été constatée le [date] à [emplacement] dans le logement [adresse]. Les conséquences observées sont [description]. J’ai pris les mesures suivantes : [mesures]. Merci de m’indiquer rapidement les dispositions prévues pour traiter cette situation.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de quittance de loyer",
+    "category": "Logement",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de quittance de loyer\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous remercie de bien vouloir me transmettre la quittance correspondant au loyer et aux charges de [période] pour le logement situé [adresse], dont le règlement a été effectué le [date].\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de régularisation de charges",
+    "category": "Logement",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de régularisation de charges\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nÀ la suite du décompte de charges reçu le [date], je souhaiterais obtenir des précisions sur [postes concernés]. Merci de m’indiquer les modalités de consultation des justificatifs ainsi que le détail du calcul appliqué à mon logement.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Organisation d’un état des lieux",
+    "category": "Logement",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Organisation d’un état des lieux\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nDans le cadre de [entrée ou départ] du logement [adresse], je vous propose d’organiser l’état des lieux le [date proposée]. Je reste disponible aux créneaux suivants : [créneaux]. Merci de me confirmer la date et les modalités de remise des clés.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de restitution du dépôt",
+    "category": "Logement",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de restitution du dépôt\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nÀ la suite de mon départ du logement [adresse] et de la remise des clés le [date], je souhaite connaître l’état du traitement de mon dépôt de garantie. Merci de m’adresser le décompte détaillé, les justificatifs des éventuelles retenues et les modalités de restitution du solde.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de remboursement",
+    "category": "Consommation",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de remboursement\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJ’ai acheté [produit ou service] le [date], commande [référence], pour [montant]. Le problème rencontré est [description]. Je sollicite un remboursement et joins [justificatifs]. Merci de m’indiquer les modalités de traitement de ma demande.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Réclamation pour livraison",
+    "category": "Consommation",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Réclamation pour livraison\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nLa commande [référence], passée le [date], présente le problème suivant : [retard, colis endommagé ou article manquant]. Je joins [preuves disponibles]. Je vous remercie de proposer une solution et de m’en préciser le délai.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Résiliation d’abonnement",
+    "category": "Consommation",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Résiliation d’abonnement\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite mettre fin à mon abonnement [référence]. Merci de me confirmer la date effective de résiliation, les éventuels frais prévus au contrat et les modalités de restitution du matériel, le cas échéant.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Contestation de facture",
+    "category": "Consommation",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Contestation de facture\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nLa facture [référence] du [date] comporte, selon moi, l’anomalie suivante : [description]. Le montant ou la prestation attendu est [élément attendu], conformément à [document]. Merci de vérifier cette facturation et de m’adresser une réponse détaillée.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de réparation sous garantie",
+    "category": "Consommation",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de réparation sous garantie\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nLe produit [désignation], acheté le [date], présente le défaut suivant : [défaut]. Je joins la preuve d’achat et [autres éléments]. Merci de m’indiquer les conditions de prise en charge applicables et la procédure de réparation ou de remplacement.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Réclamation sur une prestation",
+    "category": "Consommation",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Réclamation sur une prestation\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nLa prestation [description], réalisée le [date], ne correspond pas aux éléments convenus suivants : [écarts constatés]. Je vous propose [solution souhaitée] et reste disponible pour trouver une issue satisfaisante. Merci de me répondre par écrit.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Invitation familiale",
+    "category": "Famille",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Invitation familiale\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nNous serions heureux de vous retrouver à l’occasion de [événement], le [date] à [heure], à [lieu]. Au programme : [précisions]. Merci de nous confirmer votre présence avant le [date] et de nous signaler vos besoins particuliers.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Remerciement personnel",
+    "category": "Famille",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Remerciement personnel\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe tenais à te remercier pour [geste ou aide]. Ton attention m’a particulièrement touché parce que [raison personnelle]. J’ai beaucoup apprécié [détail]. Au plaisir de te retrouver bientôt.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Lettre d’excuses",
+    "category": "Famille",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Lettre d’excuses\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite te présenter mes excuses pour [faits]. Je comprends que cela ait pu [conséquence] et je regrette mon comportement. Pour réparer la situation, je propose [action concrète]. Je reste disponible pour en parler lorsque tu le souhaiteras.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Félicitations",
+    "category": "Famille",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Félicitations\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nToutes mes félicitations pour [événement ou réussite] ! Je suis heureux de voir ton investissement aboutir. Je te souhaite [souhait personnel] pour la suite et espère pouvoir célébrer cette belle nouvelle avec toi.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de nouvelles",
+    "category": "Famille",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de nouvelles\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe prends un moment pour t’écrire et te demander comment tu vas. Depuis [dernier échange], j’ai souvent pensé à [souvenir partagé]. De mon côté, [nouvelles personnelles]. J’aimerais beaucoup avoir de tes nouvelles quand tu en auras l’occasion.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Message de soutien",
+    "category": "Famille",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Message de soutien\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe pense à toi dans cette période [description sobre]. Si tu le souhaites, je peux t’aider pour [aide concrète] ou simplement prendre le temps de t’écouter. Tu peux me joindre [coordonnées ou disponibilités]. Je t’adresse toute mon affection.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande d’adhésion",
+    "category": "Associations",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande d’adhésion\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite adhérer à votre association [nom], dont les activités [activités] m’intéressent. Pourriez-vous me transmettre les conditions d’adhésion, le montant de la cotisation et les modalités de participation ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Proposition de bénévolat",
+    "category": "Associations",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Proposition de bénévolat\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite proposer mon aide bénévole pour [activité]. Je peux apporter [compétences] et suis disponible [disponibilités]. Je serais heureux d’échanger avec vous afin de définir une mission adaptée aux besoins de l’association.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de salle",
+    "category": "Associations",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de salle\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nDans le cadre de [événement], notre association [nom] souhaite disposer d’une salle le [date], de [heure] à [heure], pour environ [nombre] participants. Merci de nous préciser les disponibilités, conditions d’accès, tarifs et documents nécessaires.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Invitation à une réunion",
+    "category": "Associations",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Invitation à une réunion\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nVous êtes invité à une réunion de [association ou groupe] le [date] à [heure], à [lieu]. Nous aborderons les points suivants : [ordre du jour]. Merci de confirmer votre présence et de nous transmettre vos éventuelles propositions avant le [date].\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Remerciement à un bénévole",
+    "category": "Associations",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Remerciement à un bénévole\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nNous vous remercions pour votre participation à [action]. Votre contribution à [tâche] a permis [résultat constaté]. Nous avons apprécié votre disponibilité et espérons avoir le plaisir de collaborer à nouveau avec vous.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de partenariat",
+    "category": "Associations",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de partenariat\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nNotre association [nom] organise [projet] au bénéfice de [public]. Nous souhaiterions envisager avec vous un partenariat portant sur [proposition]. Vous trouverez ci-joint [présentation]. Seriez-vous disponible pour un échange afin d’en étudier les modalités ?\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande de devis",
+    "category": "Vie quotidienne",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande de devis\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite obtenir un devis pour [prestation], à réaliser à [lieu] dans la période [période]. Les besoins sont les suivants : [description]. Merci de préciser les prestations incluses, les délais, les conditions de paiement et la durée de validité de votre offre.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Confirmation de rendez-vous",
+    "category": "Vie quotidienne",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Confirmation de rendez-vous\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe vous confirme notre rendez-vous du [date] à [heure], à [lieu ou lien], au sujet de [objet]. Je préparerai [documents]. Merci de me signaler tout changement ou élément complémentaire à prévoir.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Report de rendez-vous",
+    "category": "Vie quotidienne",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Report de rendez-vous\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nUn empêchement m’oblige à demander le report de notre rendez-vous prévu le [date]. Je vous prie de m’en excuser et vous propose les créneaux suivants : [créneaux]. Merci de m’indiquer celui qui vous conviendrait.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Message au voisinage",
+    "category": "Vie quotidienne",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Message au voisinage\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite vous informer de [événement ou travaux] prévu le [date], de [heure] à [heure]. Je ferai le nécessaire pour limiter la gêne occasionnée. Vous pouvez me contacter à [coordonnées] si besoin. Merci de votre compréhension.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Demande d’inscription à une activité",
+    "category": "Vie quotidienne",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Demande d’inscription à une activité\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nJe souhaite m’inscrire à [activité] pour la période [période]. Pourriez-vous me confirmer les places disponibles, les horaires, le tarif et les documents à fournir ? Mes contraintes éventuelles sont [précisions].\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  },
+  {
+    "title": "Courriel professionnel de suivi",
+    "category": "Vie quotidienne",
+    "text": "[Nom et prénom de l’expéditeur]\n[Adresse de l’expéditeur]\n[Coordonnées de contact]\n\n[Nom du destinataire]\n[Adresse du destinataire]\n\n[Ville], le [date]\n\nObjet : Courriel professionnel de suivi\nRéférence : [référence éventuelle]\n\nMadame, Monsieur,\n\nÀ la suite de notre échange du [date] concernant [sujet], je vous confirme les points suivants : [points convenus]. Les prochaines étapes proposées sont [actions et responsables à confirmer]. Merci de me signaler toute correction ou précision utile.\n\nJe vous remercie de votre attention et vous adresse mes salutations distinguées.\n\n[Signature]\n\nPièces jointes : [liste éventuelle]"
+  }
+]
