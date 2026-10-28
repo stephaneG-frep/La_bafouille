@@ -2,12 +2,18 @@
 
 ## Créer et retrouver un courrier
 
-Depuis l'accueil, choisissez **Nouveau courrier** ou ouvrez **Modèles**.
+Depuis l'accueil, choisissez **Nouveau courrier** (une lettre structurée :
+expéditeur, destinataire, lieu et date, objet, formule d'appel, corps, formule
+de politesse, signature, pièces jointes) ou ouvrez **Modèles**.
 Remplacez les champs entre crochets par vos informations, puis rédigez dans
 l'éditeur. Les changements sont enregistrés après une courte pause ; le statut
 de l'éditeur indique si l'enregistrement a abouti. La bibliothèque permet de
 rechercher, filtrer, marquer comme favori, dupliquer et déplacer un courrier
 dans la corbeille. Un document supprimé de cette façon peut être restauré.
+Depuis la corbeille, **Supprimer définitivement** ou **Vider la corbeille**
+efface le document de l'appareil, y compris de la copie de secours
+automatique ; cette action est irréversible. La catégorie d'un courrier se
+choisit dans l'éditeur et sert de filtre dans la bibliothèque.
 
 Le statut **Terminé** est un repère personnel : il n'envoie pas le courrier.
 
@@ -45,9 +51,15 @@ L'éditeur propose gras (`**texte**`), italique (`*texte*`), souligné
 (`<u>texte</u>`), alignement, listes, recherche/remplacement, annulation,
 rétablissement et historique des versions. Exportez en PDF, DOCX, TXT ou HTML,
 imprimez le document ou copiez son texte. Le PDF est mis en page au format A4.
+Sur Android, l'icône de partage envoie le texte vers une application installée.
+Sur Linux, l'icône d'enveloppe ouvre votre messagerie par défaut avec l'objet
+et le texte préremplis ; pour envoyer un PDF, exportez-le puis joignez-le.
 
 Sur Android, le microphone demande une autorisation et affiche la transcription
-pour validation avant insertion. La lecture vocale utilise la voix disponible
+en direct ; vous la corrigez avant de la valider. Dans l'éditeur, le texte est
+inséré au curseur. Sur l'accueil, **Dicter ma demande** transmet la demande
+validée à Bafou, toujours après le dialogue de consentement. Dans Bafou, le
+bouton **Dicter** complète votre demande. La lecture vocale utilise la voix disponible
 sur l'appareil. Sur Linux, la lecture nécessite `espeak-ng` ; la dictée intégrée
 n'est pas disponible.
 
@@ -65,3 +77,14 @@ dans le coffre sécurisé de la plateforme. Ne transmettez pas d'informations qu
 vous ne souhaitez pas communiquer au fournisseur choisi. Vérifiez toujours les
 faits, dates, montants, coordonnées et références générés. Un courrier proposé
 par l'IA ne constitue pas un conseil juridique professionnel.
+
+## Le mémento linguistique
+
+**Dictionnaire et conjugaison** propose 81 fiches hors ligne, classées en huit
+rubriques : conjugaison, homophones, définitions et synonymes, formules de
+politesse, vocabulaire administratif, vocabulaire professionnel, expressions
+françaises et expressions à éviter. Vous pouvez taper un mot ou une question
+entière (« acquérir au subjonctif », « formule pour une lettre au préfet ») ; la
+fiche la plus pertinente s'ouvre en premier. Pour une question hors du
+mémento, **Demander à Bafou** transmet la question à l'IA configurée, après
+consentement.

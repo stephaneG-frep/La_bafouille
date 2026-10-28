@@ -52,36 +52,87 @@ Future<void> main() async {
   }
 }
 
+/// Transition douce entre les pages (fondu et léger glissement).
+Page<void> fade(GoRouterState state, Widget child) => CustomTransitionPage(
+  key: state.pageKey,
+  child: child,
+  transitionDuration: const Duration(milliseconds: 280),
+  reverseTransitionDuration: const Duration(milliseconds: 180),
+  transitionsBuilder: (context, animation, _, child) {
+    if (MediaQuery.disableAnimationsOf(context)) return child;
+    final curved = CurvedAnimation(
+      parent: animation,
+      curve: Curves.easeOutCubic,
+    );
+    return FadeTransition(
+      opacity: curved,
+      child: SlideTransition(
+        position: Tween(
+          begin: const Offset(0, .03),
+          end: Offset.zero,
+        ).animate(curved),
+        child: child,
+      ),
+    );
+  },
+);
+
 final router = GoRouter(
   routes: [
     ShellRoute(
       builder: (context, state, child) =>
           AtelierShell(path: state.uri.path, child: child),
       routes: [
-        GoRoute(path: '/', builder: (_, _) => const HomePage()),
+        GoRoute(
+          path: '/',
+          pageBuilder: (_, state) => fade(state, const HomePage()),
+        ),
         GoRoute(
           path: '/library',
-          builder: (_, state) => LibraryPage(
-            initialFilter: state.uri.queryParameters['filter'] ?? 'Tous',
+          pageBuilder: (_, state) => fade(
+            state,
+            LibraryPage(
+              initialFilter: state.uri.queryParameters['filter'] ?? 'Tous',
+            ),
           ),
         ),
-        GoRoute(path: '/templates', builder: (_, _) => const TemplatesPage()),
+        GoRoute(
+          path: '/templates',
+          pageBuilder: (_, state) => fade(state, const TemplatesPage()),
+        ),
         GoRoute(
           path: '/editor/:id',
-          builder: (_, state) => EditorPage(id: state.pathParameters['id']!),
+          pageBuilder: (_, state) =>
+              fade(state, EditorPage(id: state.pathParameters['id']!)),
         ),
         GoRoute(
           path: '/assistant',
-          builder: (_, state) => AssistantPage(
-            mode: state.uri.queryParameters['mode'] ?? 'chat',
-            documentId: state.uri.queryParameters['doc'],
-            initialPrompt: state.uri.queryParameters['prompt'] ?? '',
+          pageBuilder: (_, state) => fade(
+            state,
+            AssistantPage(
+              mode: state.uri.queryParameters['mode'] ?? 'chat',
+              documentId: state.uri.queryParameters['doc'],
+              initialPrompt: state.uri.queryParameters['prompt'] ?? '',
+              autoSend: state.uri.queryParameters['send'] == '1',
+            ),
           ),
         ),
-        GoRoute(path: '/correction', builder: (_, _) => const CorrectionPage()),
-        GoRoute(path: '/dictionary', builder: (_, _) => const DictionaryPage()),
-        GoRoute(path: '/settings', builder: (_, _) => const SettingsPage()),
-        GoRoute(path: '/help', builder: (_, _) => const HelpPage()),
+        GoRoute(
+          path: '/correction',
+          pageBuilder: (_, state) => fade(state, const CorrectionPage()),
+        ),
+        GoRoute(
+          path: '/dictionary',
+          pageBuilder: (_, state) => fade(state, const DictionaryPage()),
+        ),
+        GoRoute(
+          path: '/settings',
+          pageBuilder: (_, state) => fade(state, const SettingsPage()),
+        ),
+        GoRoute(
+          path: '/help',
+          pageBuilder: (_, state) => fade(state, const HelpPage()),
+        ),
       ],
     ),
   ],
@@ -92,28 +143,65 @@ class BafouilleApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dark = ref.watch(atelierProvider).data.settings['dark'] == true;
-    ThemeData theme(Brightness b) => ThemeData(
-      useMaterial3: true,
-      brightness: b,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color(0xff482878),
+    ThemeData theme(Brightness b) {
+      final light = b == Brightness.light;
+      final scheme = ColorScheme.fromSeed(
+        seedColor: Palette.violet,
         brightness: b,
-        secondary: const Color(0xff25c4c0),
-      ),
-      scaffoldBackgroundColor: b == Brightness.light
-          ? const Color(0xfffff7e8)
-          : const Color(0xff191925),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-      ),
-      cardTheme: CardThemeData(
-        elevation: 0,
-        margin: const EdgeInsets.only(bottom: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      ),
-      appBarTheme: const AppBarTheme(centerTitle: false),
-    );
+        secondary: Palette.turquoise,
+        tertiary: Palette.coral,
+      );
+      final rounded = RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+      );
+      return ThemeData(
+        useMaterial3: true,
+        brightness: b,
+        colorScheme: scheme,
+        scaffoldBackgroundColor: light
+            ? Palette.cream
+            : const Color(0xff191925),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: scheme.surface.withValues(alpha: light ? .85 : .6),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+        ),
+        // Cartes translucides : le fond de l'atelier transparaît.
+        cardTheme: CardThemeData(
+          elevation: 0,
+          color: scheme.surface.withValues(alpha: light ? .78 : .55),
+          margin: const EdgeInsets.only(bottom: 12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(
+              color: (light ? Palette.violet : Palette.turquoise).withValues(
+                alpha: .14,
+              ),
+            ),
+          ),
+        ),
+        filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(shape: rounded),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(shape: rounded),
+        ),
+        appBarTheme: AppBarTheme(
+          centerTitle: false,
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          foregroundColor: light ? Palette.violet : Palette.cream,
+        ),
+        navigationRailTheme: NavigationRailThemeData(
+          backgroundColor: Colors.transparent,
+          indicatorColor: Palette.turquoise.withValues(alpha: .35),
+        ),
+        drawerTheme: DrawerThemeData(
+          backgroundColor: light ? Palette.cream : Palette.night,
+        ),
+      );
+    }
+
     return MaterialApp.router(
       title: 'La Bafouille',
       debugShowCheckedModeBanner: false,
@@ -188,47 +276,49 @@ class AtelierShell extends ConsumerWidget {
                     ),
                   ),
                 ),
-          body: Column(
-            children: [
-              if (error != null)
-                MaterialBanner(
-                  content: Text(error),
-                  actions: [
-                    TextButton(
-                      onPressed: () => guarded(
-                        context,
-                        () => ref.read(atelierProvider).persist(),
-                      ),
-                      child: const Text('Réessayer'),
-                    ),
-                  ],
-                ),
-              Expanded(
-                child: Row(
-                  children: [
-                    if (wide)
-                      NavigationRail(
-                        extended: true,
-                        selectedIndex: index < 0 ? 0 : index,
-                        onDestinationSelected: (i) =>
-                            context.go(destinations[i].$1),
-                        leading: const Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Bafou(size: 70),
+          body: AtelierBackdrop(
+            child: Column(
+              children: [
+                if (error != null)
+                  MaterialBanner(
+                    content: Text(error),
+                    actions: [
+                      TextButton(
+                        onPressed: () => guarded(
+                          context,
+                          () => ref.read(atelierProvider).persist(),
                         ),
-                        destinations: [
-                          for (final d in destinations)
-                            NavigationRailDestination(
-                              icon: Icon(d.$2),
-                              label: Text(d.$3),
-                            ),
-                        ],
+                        child: const Text('Réessayer'),
                       ),
-                    Expanded(child: child),
-                  ],
+                    ],
+                  ),
+                Expanded(
+                  child: Row(
+                    children: [
+                      if (wide)
+                        NavigationRail(
+                          extended: true,
+                          selectedIndex: index < 0 ? 0 : index,
+                          onDestinationSelected: (i) =>
+                              context.go(destinations[i].$1),
+                          leading: const Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Bafou(size: 70),
+                          ),
+                          destinations: [
+                            for (final d in destinations)
+                              NavigationRailDestination(
+                                icon: Icon(d.$2),
+                                label: Text(d.$3),
+                              ),
+                          ],
+                        ),
+                      Expanded(child: child),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

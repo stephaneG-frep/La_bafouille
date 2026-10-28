@@ -1,5 +1,52 @@
 import 'dart:convert';
 
+const categories = [
+  'Administration',
+  'Travail',
+  'Banque',
+  'Assurance',
+  'Logement',
+  'Consommation',
+  'Famille',
+  'Associations',
+  'Vie quotidienne',
+];
+
+/// Squelette d'une lettre française : les crochets signalent
+/// les informations à compléter, rien n'est inventé.
+const letterSkeleton = '''[Prénom et nom]
+[Adresse]
+[Téléphone ou courriel]
+
+[Destinataire]
+[Adresse du destinataire]
+
+[Ville], le [date]
+
+Objet : [objet du courrier]
+Référence : [numéro de dossier, de contrat ou de client, si nécessaire]
+
+Madame, Monsieur,
+
+[Exposez la situation et les faits.]
+
+[Précisez votre demande et, si besoin, le délai souhaité.]
+
+Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.
+
+[Signature]
+
+Pièces jointes : [liste, ou supprimez cette ligne]''';
+
+/// Copie stricte : un élément non textuel est rejeté dès le décodage.
+List<String> stringList(Object? value) {
+  if (value == null) return [];
+  if (value is! List || value.any((e) => e is! String)) {
+    throw const FormatException('Liste de textes invalide');
+  }
+  return List<String>.from(value);
+}
+
 class Letter {
   Letter({
     required this.id,
@@ -49,15 +96,19 @@ class Letter {
       id: j['id'],
       title: j['title'],
       text: j['text'],
-      category: j['category'] as String? ?? 'Vie quotidienne',
+      category: j['category'] is String
+          ? j['category'] as String
+          : 'Vie quotidienne',
       alignment: ['left', 'center', 'right', 'justify'].contains(j['alignment'])
           ? j['alignment'] as String
           : 'left',
       favorite: j['favorite'] == true,
       done: j['done'] == true,
       deleted: j['deleted'] == true,
-      versions: (j['versions'] as List? ?? []).cast<String>(),
-      updated: DateTime.tryParse(j['updated'] as String? ?? ''),
+      versions: stringList(j['versions']),
+      updated: DateTime.tryParse(
+        j['updated'] is String ? j['updated'] as String : '',
+      ),
     );
   }
 }
@@ -92,10 +143,17 @@ class AppData {
       throw const FormatException('Sauvegarde La Bafouille non reconnue');
     }
     final letters = (j['letters'] as List)
-        .map((e) => Letter.fromJson(Map<String, dynamic>.from(e)))
+        .map(
+          (e) => e is Map
+              ? Letter.fromJson(Map<String, dynamic>.from(e))
+              : throw const FormatException('Document invalide'),
+        )
         .toList();
     if (letters.map((e) => e.id).toSet().length != letters.length) {
       throw const FormatException('Identifiants de documents en double');
+    }
+    if (j['settings'] != null && j['settings'] is! Map) {
+      throw const FormatException('Paramètres invalides');
     }
     final settings = Map<String, dynamic>.from(j['settings'] as Map? ?? {});
     for (final key in ['dark', 'welcomed']) {
@@ -115,7 +173,7 @@ class AppData {
     return AppData(
       letters: letters,
       settings: settings,
-      searches: (j['searches'] as List? ?? []).cast<String>(),
+      searches: stringList(j['searches']),
     );
   }
 }

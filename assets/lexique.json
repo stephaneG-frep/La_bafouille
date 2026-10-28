@@ -1,0 +1,407 @@
+[
+ {
+  "mot": "être",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont.\nImparfait : j’étais, tu étais, il était, nous étions, vous étiez, ils étaient.\nFutur : je serai, tu seras, il sera, nous serons, vous serez, ils seront.\nSubjonctif : que je sois, que tu sois, qu’il soit, que nous soyons, que vous soyez, qu’ils soient.\nParticipe passé : été."
+ },
+ {
+  "mot": "avoir",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : j’ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.\nFutur : j’aurai, tu auras, il aura, nous aurons, vous aurez, ils auront.\nSubjonctif : que j’aie, que tu aies, qu’il ait, que nous ayons, que vous ayez, qu’ils aient.\nParticipe passé : eu."
+ },
+ {
+  "mot": "acquérir",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : j’acquiers, tu acquiers, il acquiert, nous acquérons, vous acquérez, ils acquièrent.\nFutur : j’acquerrai, nous acquerrons (deux r, sans accent).\nSubjonctif présent : que j’acquière, que tu acquières, qu’il/elle acquière, que nous acquérions, que vous acquériez, qu’ils/elles acquièrent.\nParticipe passé : acquis, acquise.\nSens : obtenir, devenir propriétaire. Synonymes selon le contexte : obtenir, acheter, apprendre. Contraires : perdre, céder."
+ },
+ {
+  "mot": "aller",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je vais, tu vas, il va, nous allons, vous allez, ils vont.\nFutur : j’irai, tu iras, il ira, nous irons, vous irez, ils iront.\nSubjonctif : que j’aille, que tu ailles, qu’il aille, que nous allions, que vous alliez, qu’ils aillent.\nParticipe passé : allé (auxiliaire être : je suis allé, elle est allée)."
+ },
+ {
+  "mot": "faire",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je fais, tu fais, il fait, nous faisons, vous faites, ils font.\nFutur : je ferai, nous ferons.\nSubjonctif : que je fasse, que nous fassions, qu’ils fassent.\nParticipe passé : fait.\nAttention : « vous faites », jamais « vous faisez »."
+ },
+ {
+  "mot": "pouvoir",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent.\nFutur : je pourrai (deux r) ; conditionnel : je pourrais.\nSubjonctif : que je puisse, que nous puissions, qu’ils puissent.\nParticipe passé : pu (invariable).\nFormule : « Pourriez-vous… ? » est une demande polie au conditionnel."
+ },
+ {
+  "mot": "vouloir",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je veux, tu veux, il veut, nous voulons, vous voulez, ils veulent.\nFutur : je voudrai ; conditionnel : je voudrais.\nSubjonctif : que je veuille, que nous voulions, qu’ils veuillent.\nImpératif de politesse : veuillez (« Veuillez agréer… », « Veuillez trouver ci-joint… »).\nParticipe passé : voulu."
+ },
+ {
+  "mot": "devoir",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je dois, tu dois, il doit, nous devons, vous devez, ils doivent.\nFutur : je devrai ; conditionnel : je devrais.\nSubjonctif : que je doive, que nous devions, qu’ils doivent.\nParticipe passé : dû (accent seulement au masculin singulier), due, dus, dues. Exemple : la somme due."
+ },
+ {
+  "mot": "envoyer",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : j’envoie, tu envoies, il envoie, nous envoyons, vous envoyez, ils envoient.\nImparfait : nous envoyions, vous envoyiez (y suivi de i).\nFutur : j’enverrai, nous enverrons.\nParticipe passé : envoyé.\nAccord : « les documents que je vous ai envoyés » (COD placé avant avoir)."
+ },
+ {
+  "mot": "recevoir",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je reçois, tu reçois, il reçoit, nous recevons, vous recevez, ils reçoivent.\nFutur : je recevrai.\nSubjonctif : que je reçoive, que nous recevions.\nParticipe passé : reçu.\nLe ç se place devant o et u : reçois, reçu."
+ },
+ {
+  "mot": "prendre",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je prends, tu prends, il prend, nous prenons, vous prenez, ils prennent.\nFutur : je prendrai.\nSubjonctif : que je prenne, que nous prenions, qu’ils prennent.\nParticipe passé : pris, prise."
+ },
+ {
+  "mot": "résoudre",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je résous, tu résous, il résout, nous résolvons, vous résolvez, ils résolvent.\nFutur : je résoudrai.\nSubjonctif : que je résolve.\nParticipe passé : résolu (un problème résolu)."
+ },
+ {
+  "mot": "joindre",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je joins, tu joins, il joint, nous joignons, vous joignez, ils joignent.\nFutur : je joindrai.\nParticipe passé : joint, jointe.\nAttention : « je joins » avec un s, même dans « je vous joins la facture »."
+ },
+ {
+  "mot": "conclure",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : je conclus, tu conclus, il conclut, nous concluons, vous concluez, ils concluent.\nFutur : je conclurai (pas « concluerai »).\nParticipe passé : conclu, conclue."
+ },
+ {
+  "mot": "appeler",
+  "rubrique": "Conjugaison",
+  "texte": "Présent : j’appelle, tu appelles, il appelle, nous appelons, vous appelez, ils appellent.\nFutur : j’appellerai.\nRègle : deux l devant un e muet, un seul l sinon. Même chose pour rappeler."
+ },
+ {
+  "mot": "ces / ses",
+  "rubrique": "Homophones",
+  "texte": "CES est un déterminant démonstratif : ces lettres-ci. SES est un déterminant possessif : ses lettres, les siennes. Au singulier : cette lettre / sa lettre."
+ },
+ {
+  "mot": "a / à",
+  "rubrique": "Homophones",
+  "texte": "A est le verbe avoir : il a écrit (on peut dire « il avait écrit »). À est une préposition : écrire à quelqu’un."
+ },
+ {
+  "mot": "et / est",
+  "rubrique": "Homophones",
+  "texte": "ET relie deux éléments (on peut dire « et puis »). EST est le verbe être (on peut dire « était »). Exemple : le dossier est complet et signé."
+ },
+ {
+  "mot": "ou / où",
+  "rubrique": "Homophones",
+  "texte": "OU sans accent marque un choix (on peut dire « ou bien »). OÙ avec accent indique le lieu ou le temps : la ville où j’habite, le jour où j’ai écrit."
+ },
+ {
+  "mot": "son / sont",
+  "rubrique": "Homophones",
+  "texte": "SON est un possessif (son dossier, le sien). SONT est le verbe être (on peut dire « étaient ») : les pièces sont jointes."
+ },
+ {
+  "mot": "on / ont",
+  "rubrique": "Homophones",
+  "texte": "ON est un pronom sujet (on peut dire « il »). ONT est le verbe avoir (on peut dire « avaient ») : ils ont répondu."
+ },
+ {
+  "mot": "ce / se",
+  "rubrique": "Homophones",
+  "texte": "CE désigne une chose (ce courrier, ce que je demande). SE accompagne un verbe pronominal (il se plaint, elle se souvient)."
+ },
+ {
+  "mot": "quel que / quelque",
+  "rubrique": "Homophones",
+  "texte": "QUEL QUE, en deux mots, devant le verbe être, s’accorde : quelle que soit la date, quels que soient les frais. QUELQUE, en un mot, signifie « un peu de » ou « environ » : quelque temps, quelques documents."
+ },
+ {
+  "mot": "quand / quant / qu’en",
+  "rubrique": "Homophones",
+  "texte": "QUAND indique le temps (quand vous recevrez). QUANT À signifie « en ce qui concerne » (quant à votre demande). QU’EN = que + en (qu’en pensez-vous ?)."
+ },
+ {
+  "mot": "peu / peut / peux",
+  "rubrique": "Homophones",
+  "texte": "PEU est un adverbe de quantité (peu de temps). PEUT et PEUX viennent de pouvoir : il peut, je peux, tu peux."
+ },
+ {
+  "mot": "la / là / l’a",
+  "rubrique": "Homophones",
+  "texte": "LA est un article ou un pronom (la lettre, je la signe). LÀ indique le lieu (là-bas, celui-là). L’A = le/la + avoir (il l’a reçue)."
+ },
+ {
+  "mot": "leur / leurs",
+  "rubrique": "Homophones",
+  "texte": "LEUR devant un verbe est un pronom invariable : je leur écris. Devant un nom, il s’accorde : leur dossier, leurs dossiers."
+ },
+ {
+  "mot": "davantage / d’avantage",
+  "rubrique": "Homophones",
+  "texte": "DAVANTAGE signifie « plus » : je souhaite davantage d’informations. D’AVANTAGE = de + avantage (un bénéfice) : il n’y a pas d’avantage fiscal."
+ },
+ {
+  "mot": "censé / sensé",
+  "rubrique": "Homophones",
+  "texte": "CENSÉ signifie « supposé » : il est censé répondre. SENSÉ signifie « raisonnable » : une demande sensée."
+ },
+ {
+  "mot": "près / prêt",
+  "rubrique": "Homophones",
+  "texte": "PRÈS DE indique la proximité : près de la gare, près de terminer. PRÊT À signifie « préparé » : le dossier est prêt à être envoyé."
+ },
+ {
+  "mot": "tâche / tache",
+  "rubrique": "Homophones",
+  "texte": "TÂCHE avec accent est un travail à accomplir. TACHE sans accent est une salissure."
+ },
+ {
+  "mot": "ci-joint / ci-jointe",
+  "rubrique": "Homophones",
+  "texte": "Invariable en début de phrase ou devant un nom sans déterminant : « Ci-joint les factures », « Vous trouverez ci-joint copie du contrat ». Accordé après le nom : « la facture ci-jointe ». Devant un nom avec déterminant, l’accord est facultatif : « vous trouverez ci-joint(e) la facture »."
+ },
+ {
+  "mot": "problème",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Difficulté ou question à résoudre. Selon le contexte : difficulté, obstacle, souci, question, désaccord, dysfonctionnement. « Incident » convient à un événement ponctuel. Plus élégant : « difficulté », « point à éclaircir ». Contraires possibles selon le sens : solution, facilité."
+ },
+ {
+  "mot": "demander",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Synonymes selon le registre : solliciter (soutenu), réclamer (insistance), requérir (administratif), prier de (très poli). Exemple : « Je sollicite un rendez-vous. »"
+ },
+ {
+  "mot": "important",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Synonymes : essentiel, majeur, notable, considérable, déterminant. Éviter de le répéter : « un retard considérable », « un point essentiel »."
+ },
+ {
+  "mot": "rapidement",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Synonymes : promptement, sans délai, dans les meilleurs délais, au plus tôt. Dans un courrier ferme, préférez une date précise : « avant le [date] »."
+ },
+ {
+  "mot": "améliorer",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Synonymes : perfectionner, optimiser, renforcer, faire progresser. Contraires : dégrader, détériorer."
+ },
+ {
+  "mot": "regretter",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Exprime la déception avec mesure : « Je regrette de constater que… ». Synonymes : déplorer (plus fort), être au regret de (soutenu)."
+ },
+ {
+  "mot": "remercier",
+  "rubrique": "Définitions et synonymes",
+  "texte": "« Je vous remercie de votre réponse » ou « pour votre réponse » : les deux sont corrects ; « de » est plus soutenu et s’impose devant un infinitif (je vous remercie de m’avoir répondu)."
+ },
+ {
+  "mot": "diplomatique",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Qui fait preuve de tact dans une relation. Synonymes : mesuré, conciliant, délicat. Antonymes selon le contexte : abrupt, maladroit. Exemple : « Pourrions-nous convenir d’une solution ? »"
+ },
+ {
+  "mot": "souligner",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Attirer l’attention sur un point. Synonymes : insister sur, mettre en évidence, faire remarquer, rappeler. Exemple : « Je me permets de souligner que ma demande date du [date]. »"
+ },
+ {
+  "mot": "résilier",
+  "rubrique": "Définitions et synonymes",
+  "texte": "Mettre fin à un contrat (abonnement, assurance, bail). Nom : résiliation. Ne pas confondre avec « annuler » (effacer comme s’il n’avait pas existé) ni avec « rompre » (plus général)."
+ },
+ {
+  "mot": "formules de politesse",
+  "rubrique": "Formules de politesse",
+  "texte": "Courriel professionnel : « Bien cordialement » ou « Cordialement ».\nLettre formelle : « Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées. »\nAdaptez l’appel à la fonction exacte du destinataire."
+ },
+ {
+  "mot": "formule d’appel",
+  "rubrique": "Formules de politesse",
+  "texte": "Destinataire inconnu : « Madame, Monsieur, ». Personne connue : « Madame Durand, » est familier ; préférez « Madame, ». Autorité : reprenez le titre (« Monsieur le Maire, », « Madame la Directrice, »). La formule d’appel est reprise à l’identique dans la formule finale."
+ },
+ {
+  "mot": "préfet, maire et autorités",
+  "rubrique": "Formules de politesse",
+  "texte": "Appel : « Madame la Préfète, » ou « Monsieur le Préfet, » ; « Madame la Maire, » ou « Monsieur le Maire, ».\nFin : « Je vous prie d’agréer, Monsieur le Préfet, l’expression de ma haute considération. » Pour un maire : « … l’expression de ma considération distinguée » ou « de mes salutations respectueuses »."
+ },
+ {
+  "mot": "employeur et recruteur",
+  "rubrique": "Formules de politesse",
+  "texte": "Fin d’une candidature : « Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées. » Avant cela, proposez un échange : « Je me tiens à votre disposition pour un entretien. »"
+ },
+ {
+  "mot": "bailleur ou propriétaire",
+  "rubrique": "Formules de politesse",
+  "texte": "Ton courtois et précis : « Madame, Monsieur, » puis « Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées. » Pour une relance ferme, conservez la formule mais précisez la date limite dans le corps du courrier."
+ },
+ {
+  "mot": "lettre amicale ou familiale",
+  "rubrique": "Formules de politesse",
+  "texte": "Appel : « Chère Claire, », « Cher Paul, ». Fin selon la proximité : « Amitiés », « Bien amicalement », « Je t’embrasse », « Avec toute mon affection »."
+ },
+ {
+  "mot": "réclamation ferme",
+  "rubrique": "Formules de politesse",
+  "texte": "Restez poli même ferme : « Dans l’attente d’une réponse rapide, je vous prie d’agréer… ». Évitez les formules chaleureuses (« bien à vous », « avec mes remerciements anticipés ») qui affaiblissent la demande."
+ },
+ {
+  "mot": "mise en demeure",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Courrier par lequel on demande formellement à quelqu’un d’exécuter une obligation dans un délai précis. Elle est souvent envoyée en recommandé avec avis de réception afin de garder une preuve de sa date. Indiquez l’obligation, le délai accordé et les suites envisagées."
+ },
+ {
+  "mot": "recommandé avec avis de réception",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Envoi postal dont La Poste conserve la trace, et dont l’avis signé par le destinataire prouve la date de réception. Abréviation courante : LRAR. Conservez la preuve de dépôt et l’avis."
+ },
+ {
+  "mot": "échéance",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Date à laquelle une obligation doit être exécutée ou une somme réglée. Synonymes selon le contexte : date limite, terme. Indiquez une date exacte seulement si elle est connue."
+ },
+ {
+  "mot": "pièce jointe",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Document accompagnant un courrier ou un message. Dans une lettre : « Pièces jointes : copie de la facture, justificatif de paiement ». Ne mentionnez que les pièces réellement fournies."
+ },
+ {
+  "mot": "recours gracieux",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Demande adressée à l’auteur d’une décision administrative pour qu’il la réexamine. Les délais et les voies de recours figurent en principe sur la décision elle-même : vérifiez-les avant d’écrire."
+ },
+ {
+  "mot": "délai de rétractation",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Période pendant laquelle un consommateur peut revenir sur un engagement sans justification. Pour un achat à distance en France, il est en principe de 14 jours ; les conditions et exceptions doivent être vérifiées pour chaque contrat."
+ },
+ {
+  "mot": "préavis",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Délai à respecter entre l’annonce de la fin d’un contrat (bail, emploi, abonnement) et sa fin effective. Sa durée dépend du contrat et de la situation : vérifiez-la dans le contrat ou auprès d’une source officielle."
+ },
+ {
+  "mot": "attestation",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Document par lequel une personne ou un organisme certifie un fait (attestation d’assurance, de domicile, d’employeur). Mentionnez l’objet précis de l’attestation demandée."
+ },
+ {
+  "mot": "quittance",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Document qui atteste qu’un paiement a été reçu, par exemple la quittance de loyer remise par le bailleur."
+ },
+ {
+  "mot": "procuration",
+  "rubrique": "Vocabulaire administratif",
+  "texte": "Document par lequel une personne (le mandant) autorise une autre (le mandataire) à agir en son nom pour une démarche précise. Précisez l’identité des deux personnes, la démarche et la durée."
+ },
+ {
+  "mot": "candidature spontanée",
+  "rubrique": "Vocabulaire professionnel",
+  "texte": "Candidature envoyée sans répondre à une offre publiée. Ciblez l’entreprise, expliquez ce que vous lui apportez et proposez un entretien."
+ },
+ {
+  "mot": "à l’attention de",
+  "rubrique": "Vocabulaire professionnel",
+  "texte": "Formule placée au-dessus de l’adresse pour désigner la personne ou le service destinataire : « À l’attention de Madame la Responsable des ressources humaines ». On écrit « attention », pas « intention »."
+ },
+ {
+  "mot": "relance",
+  "rubrique": "Vocabulaire professionnel",
+  "texte": "Message rappelant une demande restée sans réponse. Rappelez la date et l’objet du premier envoi, puis la suite attendue : « Sans réponse de votre part à mon courrier du [date], je me permets de revenir vers vous. »"
+ },
+ {
+  "mot": "disponibilité",
+  "rubrique": "Vocabulaire professionnel",
+  "texte": "Dans une candidature : « Je suis disponible immédiatement » ou « à compter du [date] ». Pour un rendez-vous, proposez des créneaux précis plutôt qu’« à votre convenance » seul."
+ },
+ {
+  "mot": "ordre du jour",
+  "rubrique": "Vocabulaire professionnel",
+  "texte": "Liste des points qui seront traités lors d’une réunion, envoyée avant celle-ci. Ne pas confondre avec « à l’ordre du jour » (d’actualité)."
+ },
+ {
+  "mot": "en copie",
+  "rubrique": "Vocabulaire professionnel",
+  "texte": "Indique les autres destinataires d’un courrier ou d’un courriel. Dans une lettre : « Copie : [nom ou service] ». Utilisez la copie cachée avec discrétion."
+ },
+ {
+  "mot": "prendre acte",
+  "rubrique": "Expressions françaises",
+  "texte": "Constater officiellement une information sans forcément l’approuver : « Je prends acte de votre refus. »"
+ },
+ {
+  "mot": "faire suite à",
+  "rubrique": "Expressions françaises",
+  "texte": "Formule d’introduction soignée : « Je fais suite à notre entretien du [date] » ou « Pour faire suite à votre courrier… »."
+ },
+ {
+  "mot": "le cas échéant",
+  "rubrique": "Expressions françaises",
+  "texte": "Signifie « si cela se produit », « si nécessaire » : « Le cas échéant, je vous transmettrai les justificatifs. »"
+ },
+ {
+  "mot": "à toutes fins utiles",
+  "rubrique": "Expressions françaises",
+  "texte": "Signifie « pour servir si besoin » : « Je vous joins, à toutes fins utiles, la copie du contrat. »"
+ },
+ {
+  "mot": "sous réserve de",
+  "rubrique": "Expressions françaises",
+  "texte": "Indique une condition : « sous réserve de l’accord de votre service ». S’écrit sans s à « réserve »."
+ },
+ {
+  "mot": "dans les meilleurs délais",
+  "rubrique": "Expressions françaises",
+  "texte": "Demande polie de rapidité, sans date précise. Pour une demande ferme, préférez une date : « au plus tard le [date] »."
+ },
+ {
+  "mot": "en tout état de cause",
+  "rubrique": "Expressions françaises",
+  "texte": "Signifie « quoi qu’il en soit », « dans tous les cas » ; registre soutenu."
+ },
+ {
+  "mot": "expressions à éviter",
+  "rubrique": "Expressions à éviter",
+  "texte": "« Au jour d’aujourd’hui » → « aujourd’hui ».\n« Suite à » peut être remplacé, dans un registre soigné, par « à la suite de ».\n« Vous n’avez rien fait » → précisez les faits observables : « Je n’ai pas reçu de réponse à ma demande du [date]. »"
+ },
+ {
+  "mot": "suite à",
+  "rubrique": "Expressions à éviter",
+  "texte": "Courant mais critiqué dans un registre soigné. Préférez « à la suite de », « en réponse à », « comme suite à » ou « je fais suite à »."
+ },
+ {
+  "mot": "je me permets de",
+  "rubrique": "Expressions à éviter",
+  "texte": "Utile une fois pour adoucir une relance ; répété, il alourdit le texte. Variante : « Je reviens vers vous au sujet de… »."
+ },
+ {
+  "mot": "n’hésitez pas",
+  "rubrique": "Expressions à éviter",
+  "texte": "Formule figée et négative. Préférez une phrase positive : « Je reste à votre disposition pour tout complément. »"
+ },
+ {
+  "mot": "par contre",
+  "rubrique": "Expressions à éviter",
+  "texte": "Admis, mais « en revanche » est préféré dans un courrier soigné quand il s’agit d’opposer deux idées."
+ },
+ {
+  "mot": "solutionner",
+  "rubrique": "Expressions à éviter",
+  "texte": "Néologisme critiqué : préférez « résoudre » ou « régler ». Exemple : « résoudre ce problème »."
+ },
+ {
+  "mot": "au final",
+  "rubrique": "Expressions à éviter",
+  "texte": "Tour oral : préférez « finalement », « en définitive » ou « au bout du compte »."
+ },
+ {
+  "mot": "de par",
+  "rubrique": "Expressions à éviter",
+  "texte": "Admis dans le sens de « en raison de » (de par sa fonction), mais souvent lourd : « par sa fonction », « en raison de sa fonction »."
+ },
+ {
+  "mot": "pallier à",
+  "rubrique": "Expressions à éviter",
+  "texte": "« Pallier » se construit sans « à » : on pallie un manque. Sinon, utilisez « remédier à »."
+ }
+]

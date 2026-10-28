@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Construit un DEB à partir du bundle Flutter courant, sans installer le paquet."""
 from pathlib import Path
-import shutil, subprocess, tempfile
+import re, shutil, subprocess, tempfile
 root=Path(__file__).resolve().parents[1]
+version=re.search(r'^version:\s*([0-9.]+)',(root/'pubspec.yaml').read_text(),re.M).group(1)
 bundle=root/'build/linux/x64/release/bundle'
 if not (bundle/'la_bafouille').is_file():
  raise SystemExit('Bundle absent. Exécutez flutter build linux --release.')
@@ -11,8 +12,8 @@ with tempfile.TemporaryDirectory(prefix='bafouille_deb_') as tmp:
  package=Path(tmp)
  shutil.copytree(bundle,package/'opt/la-bafouille')
  (package/'DEBIAN').mkdir()
- (package/'DEBIAN/control').write_text('''Package: la-bafouille
-Version: 1.0.1
+ (package/'DEBIAN/control').write_text(f'''Package: la-bafouille
+Version: {version}
 Section: editors
 Priority: optional
 Architecture: amd64
@@ -37,4 +38,4 @@ StartupWMClass=fr.labafouille.la_bafouille
 ''')
  (package/'usr/share/icons/hicolor/scalable/apps').mkdir(parents=True)
  shutil.copy(root/'assets/la-bafouille.svg',package/'usr/share/icons/hicolor/scalable/apps/la-bafouille.svg')
- subprocess.run(['dpkg-deb','--root-owner-group','--build',str(package),str(output/'la-bafouille_1.0.1_amd64.deb')],check=True)
+ subprocess.run(['dpkg-deb','--root-owner-group','--build',str(package),str(output/f'la-bafouille_{version}_amd64.deb')],check=True)

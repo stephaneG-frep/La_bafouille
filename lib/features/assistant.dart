@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../core/ai.dart';
 import '../core/state.dart';
 import 'common.dart';
+import 'dictation.dart';
 
 Future<AiConfig?> consentConfig(BuildContext context, Atelier a) async {
   final p = a.data.settings['provider'] as String? ?? 'Ollama';
@@ -17,12 +18,14 @@ Future<AiConfig?> consentConfig(BuildContext context, Atelier a) async {
     );
     return null;
   }
+  final ollama =
+      a.data.settings['ollama'] as String? ?? 'http://localhost:11434';
   final ok = await showDialog<bool>(
     context: context,
     builder: (c) => AlertDialog(
       title: Text('Envoyer à $p ?'),
       content: Text(
-        'La demande, le contexte affiché et l’historique de cette conversation seront transmis à $p (modèle : $model). ${p == 'Ollama' ? 'Vérifiez que l’adresse désigne bien votre serveur local.' : 'Cet appel peut être facturé par votre fournisseur.'}\n\nRelisez les données personnelles avant de continuer.',
+        'La demande, le contexte affiché et l’historique de cette conversation seront transmis à $p (modèle : $model). ${p == 'Ollama' ? 'Adresse du serveur : $ollama\nVérifiez qu’elle désigne bien votre propre serveur.' : 'Cet appel peut être facturé par votre fournisseur.'}\n\nRelisez les données personnelles avant de continuer.',
       ),
       actions: [
         TextButton(
@@ -40,12 +43,7 @@ Future<AiConfig?> consentConfig(BuildContext context, Atelier a) async {
   final key = p == 'Ollama'
       ? ''
       : await const FlutterSecureStorage().read(key: 'api_$p') ?? '';
-  return AiConfig(
-    provider: p,
-    model: model,
-    key: key,
-    ollama: a.data.settings['ollama'] as String? ?? 'http://localhost:11434',
-  );
+  return AiConfig(provider: p, model: model, key: key, ollama: ollama);
 }
 
 class AssistantPage extends ConsumerStatefulWidget {
@@ -54,8 +52,13 @@ class AssistantPage extends ConsumerStatefulWidget {
     this.mode = 'chat',
     this.documentId,
     this.initialPrompt = '',
+    this.autoSend = false,
   });
   final String mode, initialPrompt;
+
+  /// Demande validée ailleurs (dictée) : on enchaîne sur l'envoi,
+  /// toujours précédé du dialogue de consentement.
+  final bool autoSend;
   final String? documentId;
   @override
   ConsumerState<AssistantPage> createState() => _AssistantState();
@@ -72,6 +75,26 @@ class _AssistantState extends ConsumerState<AssistantPage> {
   bool busy = false;
   String? failure;
   int count = 2;
+
+  /// Contexte de la dernière demande, réutilisé pour régénérer une proposition.
+  String lastBase = '';
+  @override
+  void initState() {
+    super.initState();
+    if (widget.autoSend) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) send();
+      });
+    }
+  }
+
+  Future<void> dictateRequest() async {
+    final words = await dictate(context, action: 'Ajouter à ma demande');
+    if (words == null || !mounted) return;
+    final current = prompt.text.trim();
+    prompt.text = current.isEmpty ? words : '$current\n$words';
+  }
+
   @override
   void dispose() {
     prompt.dispose();
@@ -94,6 +117,7 @@ class _AssistantState extends ConsumerState<AssistantPage> {
       final history = messages.map((m) => '${m.$1} : ${m.$2}').join('\n');
       final base =
           'Document actuel :\n${l?.text ?? "Aucun document ouvert"}\n\nConversation :\n$history\n\nDemande : $question\nStyles : ${selected.join(", ")}';
+      lastBase = base;
       final results = <String>[];
       final n = widget.mode == 'styles' ? count : 1;
       for (var i = 0; i < n; i++) {
@@ -131,6 +155,124 @@ class _AssistantState extends ConsumerState<AssistantPage> {
       if (mounted) setState(() => busy = false);
     }
   }
+
+  /// Remplace une seule proposition par une nouvelle version (nouvel accord).
+  Future<void> regenerate(int i) async {
+    if (busy || lastBase.isEmpty) return;
+    setState(() {
+      busy = true;
+      failure = null;
+    });
+    try {
+      final config = await consentConfig(context, ref.read(atelierProvider));
+      if (config == null) return;
+      final result = await ai.generate(
+        config,
+        '$lastBase\nPropose une nouvelle version, nettement différente de celle-ci :\n${proposals[i]}',
+      );
+      if (!mounted) return;
+      setState(() {
+        messages.add(('Bafou', result));
+        proposals[i] = result;
+      });
+    } catch (e) {
+      if (mounted) {
+        setState(
+          () => failure = e is AiFailure
+              ? e.message
+              : 'Impossible d’accéder au coffre de clés ou au fournisseur. Vérifiez les paramètres.',
+        );
+      }
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
+
+  /// Retouche manuelle : modifier un paragraphe ou y coller un passage
+  /// copié d'une autre proposition.
+  Future<void> edit(int i) async {
+    final c = TextEditingController(text: proposals[i]);
+    final next = await showDialog<String>(
+      context: context,
+      builder: (d) => AlertDialog(
+        title: Text('Retoucher la proposition ${i + 1}'),
+        content: SizedBox(
+          width: 700,
+          child: TextField(
+            controller: c,
+            minLines: 10,
+            maxLines: 20,
+            decoration: const InputDecoration(
+              helperText:
+                  'Modifiez un paragraphe ou collez un passage copié d’une autre proposition.',
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(d),
+            child: const Text('Annuler'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(d, c.text),
+            child: const Text('Valider la retouche'),
+          ),
+        ],
+      ),
+    );
+    await Future<void>.delayed(const Duration(milliseconds: 250));
+    c.dispose();
+    if (next != null && next.trim().isNotEmpty && mounted) {
+      setState(() => proposals[i] = next.trim());
+    }
+  }
+
+  Widget proposalCard(int i) => Card(
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Proposition ${i + 1}',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          SelectableText(proposals[i]),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 4,
+            children: [
+              FilledButton(
+                onPressed: busy ? null : () => accept(proposals[i]),
+                child: const Text('Utiliser ce texte'),
+              ),
+              TextButton(
+                onPressed: busy ? null : () => edit(i),
+                child: const Text('Retoucher'),
+              ),
+              TextButton(
+                onPressed: busy ? null : () => regenerate(i),
+                child: const Text('Nouvelle proposition'),
+              ),
+              TextButton(
+                onPressed: () =>
+                    Clipboard.setData(ClipboardData(text: proposals[i])),
+                child: const Text('Copier'),
+              ),
+              TextButton(
+                onPressed: busy
+                    ? null
+                    : () => setState(() => proposals.removeAt(i)),
+                child: const Text('Refuser'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
 
   Future<void> accept(String proposal) async {
     final a = ref.read(atelierProvider);
@@ -267,46 +409,33 @@ class _AssistantState extends ConsumerState<AssistantPage> {
           ),
         if (proposals.isNotEmpty) ...[
           const Text(
-            'Les propositions restent séparées de votre document. Copiez des passages pour les fusionner dans l’éditeur.',
+            'Les propositions restent séparées de votre document. Retouchez-les, copiez des passages de l’une à l’autre, puis utilisez votre préférée. L’ancienne version reste dans l’historique.',
           ),
           const SizedBox(height: 12),
-          for (var i = 0; i < proposals.length; i++)
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Proposition ${i + 1}',
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    const SizedBox(height: 8),
-                    SelectableText(proposals[i]),
-                    Wrap(
-                      spacing: 8,
-                      children: [
-                        FilledButton(
-                          onPressed: busy ? null : () => accept(proposals[i]),
-                          child: const Text('Utiliser ce texte'),
-                        ),
-                        TextButton(
-                          onPressed: () => Clipboard.setData(
-                            ClipboardData(text: proposals[i]),
+          // Comparateur côte à côte sur grand écran.
+          LayoutBuilder(
+            builder: (context, c) => c.maxWidth >= 900 && proposals.length > 1
+                ? Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (var i = 0; i < proposals.length; i++)
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              right: i < proposals.length - 1 ? 12 : 0,
+                            ),
+                            child: proposalCard(i),
                           ),
-                          child: const Text('Copier'),
                         ),
-                        TextButton(
-                          onPressed: () =>
-                              setState(() => proposals.removeAt(i)),
-                          child: const Text('Refuser'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
+                    ],
+                  )
+                : Column(
+                    children: [
+                      for (var i = 0; i < proposals.length; i++)
+                        proposalCard(i),
+                    ],
+                  ),
+          ),
         ],
         if (failure != null)
           Padding(
@@ -329,6 +458,7 @@ class _AssistantState extends ConsumerState<AssistantPage> {
         const SizedBox(height: 12),
         Wrap(
           spacing: 12,
+          runSpacing: 8,
           children: [
             FilledButton.icon(
               onPressed: busy ? null : send,
@@ -340,6 +470,11 @@ class _AssistantState extends ConsumerState<AssistantPage> {
                     )
                   : const Icon(Icons.auto_awesome),
               label: Text(busy ? 'Bafou réfléchit…' : 'Préparer l’envoi'),
+            ),
+            OutlinedButton.icon(
+              onPressed: busy ? null : dictateRequest,
+              icon: const Icon(Icons.mic_none),
+              label: const Text('Dicter'),
             ),
             TextButton(
               onPressed: () => context.go('/settings'),

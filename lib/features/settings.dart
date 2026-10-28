@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../core/ai.dart';
 import '../core/state.dart';
+import '../core/version.dart';
 import 'assistant.dart';
 import 'editor.dart';
 import 'common.dart';
@@ -122,7 +123,7 @@ class _SettingsState extends ConsumerState<SettingsPage> {
       builder: (c) => AlertDialog(
         title: const Text('Restaurer la bibliothèque ?'),
         content: const Text(
-          'Les documents seront ajoutés comme copies. Vos documents actuels seront conservés. Les paramètres non sensibles du fichier seront importés. Aucune clé API ne sera importée.',
+          'Les documents seront ajoutés comme copies. Vos documents actuels seront conservés. Les paramètres non sensibles du fichier seront importés. Aucune clé API ni adresse de serveur ne sera importée.',
         ),
         actions: [
           TextButton(
@@ -293,7 +294,7 @@ class _SettingsState extends ConsumerState<SettingsPage> {
         SelectableText('Dossier local : ${a.store.directory.path}'),
         const SizedBox(height: 20),
         const Text(
-          'La Bafouille 1.0.1 • Aucune télémétrie intégrée\nLe traitement distant est déclenché uniquement par vos actions et après consentement. La disponibilité et la facturation des modèles dépendent du fournisseur.',
+          'La Bafouille $appVersion • Aucune télémétrie intégrée\nLe traitement distant est déclenché uniquement par vos actions et après consentement. La disponibilité et la facturation des modèles dépendent du fournisseur.',
         ),
       ],
     );
@@ -336,7 +337,7 @@ class HelpPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(16),
             child: Text(
-              'Le labo des mots conserve le texte original. Analysez localement, puis cochez les corrections que vous acceptez. Les cases décochées sont des refus. Vous pouvez toutes les annuler. L’enregistrement conserve l’original dans les versions. Le correcteur local est limité ; une analyse IA approfondie est disponible avec configuration et consentement. Le dictionnaire local est un petit mémento, complété par les questions à Bafou.',
+              'Le labo des mots conserve le texte original. Analysez localement, puis cochez les corrections que vous acceptez. Les cases décochées sont des refus. Vous pouvez toutes les annuler. L’icône en forme de toque ouvre l’explication détaillée de chaque règle, et des mini-exercices permettent de s’entraîner. L’enregistrement conserve l’original dans les versions. Le correcteur local est limité ; une analyse IA approfondie est disponible avec configuration et consentement. Le dictionnaire local est un petit mémento, complété par les questions à Bafou.',
             ),
           ),
         ],
@@ -347,7 +348,7 @@ class HelpPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(16),
             child: Text(
-              'Dans l’éditeur, choisissez Exporter puis PDF, DOCX, TXT ou HTML et un emplacement. Le PDF est au format A4. L’icône imprimante ouvre le service d’impression. Android permet le partage vers une application de messagerie installée. Sur Linux, exportez puis joignez le fichier à votre message. Le gras (**texte**), l’italique (*texte*) et le souligné (<u>texte</u>) sont interprétés dans l’aperçu et les exports PDF, DOCX et HTML. Le TXT conserve uniquement le texte.',
+              'Dans l’éditeur, choisissez Exporter puis PDF, DOCX, TXT ou HTML et un emplacement. Le PDF est au format A4. L’icône imprimante ouvre le service d’impression. Android permet le partage vers une application de messagerie installée. Sur Linux, l’icône d’enveloppe ouvre votre messagerie avec l’objet et le texte préremplis ; pour envoyer un PDF, exportez-le puis joignez-le au message. Le gras (**texte**), l’italique (*texte*) et le souligné (<u>texte</u>) sont interprétés dans l’aperçu et les exports PDF, DOCX et HTML. Le TXT conserve uniquement le texte.',
             ),
           ),
         ],

@@ -1,7 +1,7 @@
 name: la_bafouille
 description: Atelier français de rédaction et de correspondance privé.
 publish_to: none
-version: 1.0.1+2
+version: 1.0.2+3
 environment:
   sdk: '>=3.9.0 <4.0.0'
 dependencies:
@@ -31,6 +31,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/templates.json
+    - assets/lexique.json
     - assets/LiberationSans-Regular.ttf
     - assets/LiberationSans-Bold.ttf
     - assets/LiberationSans-Italic.ttf

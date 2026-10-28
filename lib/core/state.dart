@@ -58,7 +58,17 @@ class Atelier extends ChangeNotifier {
       data.letters.add(copy);
     }
     data.searches = {...data.searches, ...restored.searches}.take(100).toList();
-    data.settings.addAll(restored.settings);
+    // L'adresse du serveur n'est jamais reprise d'un fichier externe.
+    data.settings.addAll(restored.settings..remove('ollama'));
+    await persist();
+  }
+
+  /// Suppression définitive. Deux écritures pour que la copie de secours
+  /// (bibliotheque.precedente.json) ne conserve pas non plus les documents.
+  Future<void> purge(Iterable<String> ids) async {
+    final doomed = ids.toSet();
+    data.letters.removeWhere((l) => doomed.contains(l.id));
+    await persist();
     await persist();
   }
 }

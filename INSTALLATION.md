@@ -25,11 +25,46 @@ flutter build apk --release --target-platform android-arm64
 ```
 
 L'APK Flutter est généré dans
-`build/app/outputs/flutter-apk/app-release.apk`. La configuration de
-ce projet signe le build release avec la clé debug Flutter par défaut : ce
-fichier convient à une installation locale/sideload, mais **pas à une
-publication Play Store**. Pour une publication, configurez une clé de
-signature privée qui ne doit pas être ajoutée au dépôt ni à l'archive source.
+`build/app/outputs/flutter-apk/app-release.apk`. Pour le copier dans la
+livraison sous un nom versionné (lu dans `pubspec.yaml`) :
+
+```sh
+python3 scripts/package_android.py
+```
+
+### Signature de publication
+
+Sans configuration, le build release est signé avec la clé debug Flutter : il
+convient à une installation locale, **pas à une publication**. Pour signer avec
+votre propre clé :
+
+1. Créez la clé une seule fois, hors du dépôt, et sauvegardez-la en lieu sûr :
+   la perdre empêche toute mise à jour ultérieure de l'application.
+
+   ```sh
+   keytool -genkey -v -keystore ~/cles/la_bafouille.jks -keyalg RSA \
+     -keysize 4096 -validity 10000 -alias la_bafouille
+   ```
+
+2. Créez `android/key.properties` (ignoré par Git et exclu de l'archive
+   source) :
+
+   ```properties
+   storePassword=<mot de passe du magasin>
+   keyPassword=<mot de passe de la clé>
+   keyAlias=la_bafouille
+   storeFile=/home/<utilisateur>/cles/la_bafouille.jks
+   ```
+
+3. Relancez `flutter build apk --release --target-platform android-arm64`,
+   puis vérifiez avec `apksigner verify --print-certs` que le certificat
+   n'est plus « Android Debug ».
+
+**Attention :** Android refuse de mettre à jour une application signée avec
+une autre clé. Pour passer d'un APK signé debug à un APK signé avec votre clé,
+il faut désinstaller l'ancienne version, ce qui **efface la bibliothèque
+locale**. Exportez-la d'abord (Paramètres → Exporter la bibliothèque), puis
+restaurez-la après la nouvelle installation.
 
 ## Linux et paquet DEB
 
@@ -39,12 +74,12 @@ python3 scripts/package_linux.py
 ```
 
 Le paquet est créé sous
-`livraison_la_bafouille/la-bafouille_1.0.1_amd64.deb`. Il cible Ubuntu/Debian
+`livraison_la_bafouille/la-bafouille_1.0.2_amd64.deb`. Il cible Ubuntu/Debian
 64 bits et dépend notamment des bibliothèques GTK 3 et libsecret. Installez-le
 avec :
 
 ```sh
-sudo apt install ./livraison_la_bafouille/la-bafouille_1.0.1_amd64.deb
+sudo apt install ./livraison_la_bafouille/la-bafouille_1.0.2_amd64.deb
 ```
 
 Ou, sans installer le paquet, exécutez le bundle après compilation :

@@ -10,12 +10,12 @@ import 'package:go_router/go_router.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:speech_to_text/speech_to_text.dart';
 import '../core/models.dart';
 import '../core/markup.dart';
 import '../core/exports.dart';
 import '../core/state.dart';
 import 'common.dart';
+import 'dictation.dart';
 
 Future<void> saveBytes(
   BuildContext context,
@@ -33,6 +33,17 @@ Future<void> saveBytes(
   if (path != null && context.mounted) notice(context, 'Fichier enregistré.');
 }
 
+/// Ouvre la messagerie par défaut (Linux) avec l'objet et le texte préremplis.
+Future<void> openMail(String subject, String body) async {
+  final uri =
+      'mailto:?subject=${Uri.encodeComponent(subject)}'
+      '&body=${Uri.encodeComponent(body)}';
+  final result = await Process.run('xdg-open', [uri]);
+  if (result.exitCode != 0) {
+    throw const ProcessException('xdg-open', []);
+  }
+}
+
 class EditorPage extends ConsumerStatefulWidget {
   const EditorPage({super.key, required this.id});
   final String id;
@@ -46,12 +57,10 @@ class _EditorState extends ConsumerState<EditorPage> {
   late Atelier atelier;
   bool preview = false;
   final undo = UndoHistoryController();
-  final speech = SpeechToText();
   late final tts = FlutterTts();
   Timer? timer;
   String status = 'Enregistré';
   TextAlign alignment = TextAlign.left;
-  bool listening = false;
   @override
   void initState() {
     super.initState();
@@ -113,7 +122,6 @@ class _EditorState extends ConsumerState<EditorPage> {
     title.dispose();
     text.dispose();
     undo.dispose();
-    if (Platform.isAndroid) speech.stop();
     if (Platform.isAndroid) tts.stop();
     super.dispose();
   }
@@ -218,11 +226,15 @@ class _EditorState extends ConsumerState<EditorPage> {
   }
 
   Future<Uint8List> pdf() async {
-    final font = pw.Font.ttf(await rootBundle.load('assets/LiberationSans-Regular.ttf'));
+    final font = pw.Font.ttf(
+      await rootBundle.load('assets/LiberationSans-Regular.ttf'),
+    );
     return Exports.pdf(
       letter!,
       font: font,
-      bold: pw.Font.ttf(await rootBundle.load('assets/LiberationSans-Bold.ttf')),
+      bold: pw.Font.ttf(
+        await rootBundle.load('assets/LiberationSans-Bold.ttf'),
+      ),
       italic: pw.Font.ttf(
         await rootBundle.load('assets/LiberationSans-Italic.ttf'),
       ),
@@ -249,92 +261,19 @@ class _EditorState extends ConsumerState<EditorPage> {
     });
   }
 
-  Future<void> dictate() async {
-    if (!Platform.isAndroid) {
-      notice(
-        context,
-        'La dictée intégrée est disponible sur Android. Sur Linux, utilisez votre outil de dictée système pour saisir du texte.',
-      );
-      return;
-    }
-    if (listening) {
-      await speech.stop();
-      if (mounted) setState(() => listening = false);
-      return;
-    }
-    final agreed = await showDialog<bool>(
-      context: context,
-      builder: (c) => AlertDialog(
-        title: const Text('Dictée vocale'),
-        content: const Text(
-          'Le service de reconnaissance Android peut traiter votre voix en ligne selon votre appareil. La transcription sera affichée pour validation avant insertion. Autoriser le microphone ?',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(c, false),
-            child: const Text('Annuler'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(c, true),
-            child: const Text('Dicter'),
-          ),
-        ],
-      ),
+  /// Insère la dictée validée à la position du curseur.
+  Future<void> dictateHere() async {
+    final s = text.selection;
+    final words = await dictate(context, action: 'Insérer');
+    if (words == null || !mounted) return;
+    final pos = s.isValid ? s.end : text.text.length;
+    final before = text.text.substring(0, pos);
+    final insert =
+        '${before.isEmpty || before.endsWith('\n') || before.endsWith(' ') ? '' : ' '}$words';
+    text.value = TextEditingValue(
+      text: text.text.replaceRange(pos, pos, insert),
+      selection: TextSelection.collapsed(offset: pos + insert.length),
     );
-    if (agreed != true || !mounted) return;
-    await guarded(context, () async {
-      final ok = await speech.initialize(
-        onStatus: (s) {
-          if (mounted && s == 'done') setState(() => listening = false);
-        },
-        onError: (_) {
-          if (mounted) {
-            setState(() => listening = false);
-            notice(context, 'Reconnaissance vocale indisponible.');
-          }
-        },
-      );
-      if (!ok) {
-        if (mounted) {
-          notice(context, 'Microphone refusé ou service vocal indisponible.');
-        }
-        return;
-      }
-      if (mounted) setState(() => listening = true);
-      await speech.listen(
-        listenOptions: SpeechListenOptions(localeId: 'fr_FR'),
-        onResult: (r) {
-          if (r.finalResult && mounted) {
-            setState(() => listening = false);
-            previewDictation(r.recognizedWords);
-          }
-        },
-      );
-    });
-  }
-
-  Future<void> previewDictation(String words) async {
-    final c = TextEditingController(text: words);
-    final yes = await showDialog<bool>(
-      context: context,
-      builder: (d) => AlertDialog(
-        title: const Text('Vérifiez votre dictée'),
-        content: TextField(controller: c, minLines: 3, maxLines: 8),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(d, false),
-            child: const Text('Refuser'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(d, true),
-            child: const Text('Insérer'),
-          ),
-        ],
-      ),
-    );
-    if (yes == true) text.text = '${text.text}\n${c.text}';
-    await Future<void>.delayed(const Duration(milliseconds: 250));
-    c.dispose();
   }
 
   Future<void> readAloud() async {
@@ -364,6 +303,20 @@ class _EditorState extends ConsumerState<EditorPage> {
         TextField(
           controller: title,
           decoration: const InputDecoration(labelText: 'Titre du courrier'),
+        ),
+        const SizedBox(height: 12),
+        DropdownButtonFormField<String>(
+          initialValue: letter!.category,
+          decoration: const InputDecoration(labelText: 'Catégorie'),
+          items: [
+            for (final c in {...categories, letter!.category})
+              DropdownMenuItem(value: c, child: Text(c)),
+          ],
+          onChanged: (v) {
+            if (v == null) return;
+            letter!.category = v;
+            changed();
+          },
         ),
         const SizedBox(height: 12),
         Wrap(
@@ -468,7 +421,17 @@ class _EditorState extends ConsumerState<EditorPage> {
                 ),
                 IconButton(
                   tooltip: 'Alignement du document',
-                  onPressed: () { setState(() => alignment = switch(alignment){TextAlign.left=>TextAlign.center,TextAlign.center=>TextAlign.right,TextAlign.right=>TextAlign.justify,_=>TextAlign.left}); changed(); },
+                  onPressed: () {
+                    setState(
+                      () => alignment = switch (alignment) {
+                        TextAlign.left => TextAlign.center,
+                        TextAlign.center => TextAlign.right,
+                        TextAlign.right => TextAlign.justify,
+                        _ => TextAlign.left,
+                      },
+                    );
+                    changed();
+                  },
                   icon: const Icon(Icons.format_align_center),
                 ),
                 IconButton(
@@ -486,8 +449,8 @@ class _EditorState extends ConsumerState<EditorPage> {
                 ),
                 IconButton(
                   tooltip: 'Dicter',
-                  onPressed: dictate,
-                  icon: Icon(listening ? Icons.stop : Icons.mic_none),
+                  onPressed: dictateHere,
+                  icon: const Icon(Icons.mic_none),
                 ),
                 IconButton(
                   tooltip: 'Lire à voix haute',
@@ -503,13 +466,25 @@ class _EditorState extends ConsumerState<EditorPage> {
                   icon: const Icon(Icons.print_outlined),
                 ),
                 IconButton(
-                  tooltip: 'Partager via une application (Android)',
-                  onPressed: Platform.isAndroid
-                      ? () => guarded(context, () async {
-                          await Share.share(text.text, subject: title.text);
-                        })
-                      : null,
-                  icon: const Icon(Icons.share_outlined),
+                  tooltip: Platform.isAndroid
+                      ? 'Partager via une application'
+                      : 'Envoyer par courriel',
+                  onPressed: () => guarded(context, () async {
+                    await save();
+                    if (Platform.isAndroid) {
+                      await Share.share(
+                        plainText(text.text),
+                        subject: title.text,
+                      );
+                    } else {
+                      await openMail(title.text, plainText(text.text));
+                    }
+                  }),
+                  icon: Icon(
+                    Platform.isAndroid
+                        ? Icons.share_outlined
+                        : Icons.forward_to_inbox_outlined,
+                  ),
                 ),
               ],
             ),

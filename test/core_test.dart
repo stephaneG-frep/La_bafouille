@@ -10,8 +10,14 @@ import 'package:la_bafouille/core/exports.dart';
 import 'package:la_bafouille/core/models.dart';
 import 'package:la_bafouille/core/state.dart';
 import 'package:la_bafouille/core/storage.dart';
+import 'package:la_bafouille/core/version.dart';
+import 'package:la_bafouille/features/language.dart';
 
 void main() {
+  test('La version affichée correspond à pubspec.yaml', () {
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    expect(pubspec, contains('version: $appVersion+'));
+  });
   test(
     'Création, sauvegarde atomique, réouverture, versions et restauration sans écrasement',
     () async {
@@ -56,6 +62,53 @@ void main() {
       throwsFormatException,
     );
   });
+  test(
+    'Une sauvegarde malformée est rejetée sans bloquer la bibliothèque',
+    () async {
+      final dir = await Directory.systemTemp.createTemp('bafouille_malforme_');
+      addTearDown(() => dir.delete(recursive: true));
+      final a = Atelier(LocalStore(dir), AppData());
+      await a.create(title: 'A', text: 'x');
+      for (final bad in [
+        '{"format":"la-bafouille","version":1,"letters":[{"id":"1","title":"t","text":"y","versions":[1]}]}',
+        '{"format":"la-bafouille","version":1,"letters":[],"searches":[true]}',
+        '{"format":"la-bafouille","version":1,"letters":[42]}',
+        '{"format":"la-bafouille","version":1,"letters":[],"settings":[]}',
+      ]) {
+        await expectLater(a.restore(bad), throwsFormatException);
+      }
+      expect(a.data.letters.length, 1);
+      await a.persist();
+    },
+  );
+  test('La restauration n’importe pas l’adresse du serveur Ollama', () async {
+    final dir = await Directory.systemTemp.createTemp('bafouille_ollama_');
+    addTearDown(() => dir.delete(recursive: true));
+    final a = Atelier(
+      LocalStore(dir),
+      AppData(settings: {'ollama': 'http://localhost:11434'}),
+    );
+    await a.restore(
+      '{"format":"la-bafouille","version":1,"letters":[],"settings":{"ollama":"https://exemple.invalid","dark":true}}',
+    );
+    expect(a.data.settings['ollama'], 'http://localhost:11434');
+    expect(a.data.settings['dark'], true);
+  });
+  test('Suppression définitive, y compris dans la copie de secours', () async {
+    final dir = await Directory.systemTemp.createTemp('bafouille_purge_');
+    addTearDown(() => dir.delete(recursive: true));
+    final store = LocalStore(dir);
+    final a = Atelier(store, AppData());
+    final gone = await a.create(title: 'Secret', text: 'Confidentiel');
+    final kept = await a.create(title: 'Garde', text: 'Public');
+    gone.deleted = true;
+    await a.persist();
+    await a.purge([gone.id]);
+    expect(a.byId(gone.id), isNull);
+    expect(a.byId(kept.id), isNotNull);
+    expect(await store.file.readAsString(), isNot(contains('Confidentiel')));
+    expect(await store.backup.readAsString(), isNot(contains('Confidentiel')));
+  });
   test('Les écritures concurrentes sont sérialisées', () async {
     final dir = await Directory.systemTemp.createTemp('bafouille_queue_');
     addTearDown(() => dir.delete(recursive: true));
@@ -96,6 +149,74 @@ void main() {
       expect(original, contains('est'));
     },
   );
+  test('Correcteur enrichi : homophones, ponctuation, répétitions', () {
+    String fix(String t) =>
+        LocalCorrector.apply(t, LocalCorrector.inspect(t)).replaceAll(' ', ' ');
+    expect(
+      fix('Il à reçu le le dossier,merci!'),
+      'Il a reçu le dossier, merci !',
+    );
+    expect(
+      fix('Quelque soit la date , voir même demain.'),
+      'Quelle que soit la date, voire demain.',
+    );
+    expect(fix('Je me rappelle de cette date.'), 'Je me rappelle cette date.');
+    // Usages corrects laissés intacts.
+    for (final ok in [
+      'Nous nous sommes vus. Je me rappelle de vous.',
+      'Merci ! Pourquoi ? Objet : relance, 3,5 € et http://exemple.fr ...',
+    ]) {
+      expect(LocalCorrector.inspect(ok), isEmpty, reason: ok);
+    }
+    // Les corrections ne se chevauchent jamais et ont une explication détaillée.
+    final c = LocalCorrector.inspect('Si j’aurais su,il à pallier à tout  !');
+    for (var i = 1; i < c.length; i++) {
+      expect(c[i].start, greaterThanOrEqualTo(c[i - 1].end));
+    }
+    expect(c.every((e) => e.detail.isNotEmpty), true);
+  });
+  test('Le nouveau courrier suit la structure d’une lettre française', () {
+    for (final part in [
+      '], le [date]',
+      'Objet :',
+      'Madame, Monsieur,',
+      '[Signature]',
+      'Pièces jointes',
+    ]) {
+      expect(letterSkeleton, contains(part));
+    }
+  });
+  test('Mémento : fiches valides et questions du cahier des charges', () async {
+    final data =
+        jsonDecode(File('assets/lexique.json').readAsStringSync()) as List;
+    final all = [
+      for (final e in data)
+        Entry(
+          e['mot'] as String,
+          e['rubrique'] as String,
+          e['texte'] as String,
+        ),
+    ];
+    expect(all.length, greaterThanOrEqualTo(80));
+    expect(all.map((e) => e.word).toSet().length, all.length);
+    expect(all.every((e) => sections.contains(e.section)), true);
+    for (final s in sections) {
+      expect(all.where((e) => e.section == s), isNotEmpty, reason: s);
+    }
+    String top(String q) => searchLexicon(all, q, null).first.word;
+    expect(top('Trouve un mot plus élégant que problème.'), 'problème');
+    expect(top('Comment conjuguer acquérir au subjonctif ?'), 'acquérir');
+    expect(
+      top('Quelle formule utiliser pour terminer une lettre au préfet ?'),
+      'préfet, maire et autorités',
+    );
+    expect(top('quel que'), 'quel que / quelque');
+    expect(fold('Cœur À ÉTÉ'), 'coeur a ete');
+    expect(
+      searchLexicon(all, '', 'Homophones').length,
+      all.where((e) => e.section == 'Homophones').length,
+    );
+  });
   test('PDF, DOCX et HTML valides sans injection', () async {
     final l = Letter(
       id: '1',
